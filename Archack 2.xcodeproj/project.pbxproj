@@ -16,8 +16,8 @@
 		E31ACC112371F9A40072FF07 /* NewsCustomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31ACC102371F9A40072FF07 /* NewsCustomLayout.swift */; };
 		E31ACC132371F9D70072FF07 /* NewsCustomLayoutSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31ACC122371F9D70072FF07 /* NewsCustomLayoutSettings.swift */; };
 		E31ACC152371FBD00072FF07 /* NewsCustomLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31ACC142371FBD00072FF07 /* NewsCustomLayoutAttributes.swift */; };
-		E31ACC192371FD2E0072FF07 /* NewsCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31ACC172371FD2E0072FF07 /* NewsCellCollectionViewCell.swift */; };
-		E31ACC1A2371FD2E0072FF07 /* NewsCellCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E31ACC182371FD2E0072FF07 /* NewsCellCollectionViewCell.xib */; };
+		E31ACC192371FD2E0072FF07 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31ACC172371FD2E0072FF07 /* NewsCell.swift */; };
+		E31ACC1A2371FD2E0072FF07 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E31ACC182371FD2E0072FF07 /* NewsCell.xib */; };
 		E31ACC1D2371FF820072FF07 /* NewsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31ACC1B2371FF820072FF07 /* NewsHeader.swift */; };
 		E31ACC1E2371FF820072FF07 /* NewsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = E31ACC1C2371FF820072FF07 /* NewsHeader.xib */; };
 /* End PBXBuildFile section */
@@ -34,8 +34,8 @@
 		E31ACC102371F9A40072FF07 /* NewsCustomLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCustomLayout.swift; sourceTree = "<group>"; };
 		E31ACC122371F9D70072FF07 /* NewsCustomLayoutSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCustomLayoutSettings.swift; sourceTree = "<group>"; };
 		E31ACC142371FBD00072FF07 /* NewsCustomLayoutAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCustomLayoutAttributes.swift; sourceTree = "<group>"; };
-		E31ACC172371FD2E0072FF07 /* NewsCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCellCollectionViewCell.swift; sourceTree = "<group>"; };
-		E31ACC182371FD2E0072FF07 /* NewsCellCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCellCollectionViewCell.xib; sourceTree = "<group>"; };
+		E31ACC172371FD2E0072FF07 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
+		E31ACC182371FD2E0072FF07 /* NewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
 		E31ACC1B2371FF820072FF07 /* NewsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsHeader.swift; sourceTree = "<group>"; };
 		E31ACC1C2371FF820072FF07 /* NewsHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsHeader.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,8 +130,8 @@
 		E31ACC162371FD010072FF07 /* News Cell */ = {
 			isa = PBXGroup;
 			children = (
-				E31ACC172371FD2E0072FF07 /* NewsCellCollectionViewCell.swift */,
-				E31ACC182371FD2E0072FF07 /* NewsCellCollectionViewCell.xib */,
+				E31ACC172371FD2E0072FF07 /* NewsCell.swift */,
+				E31ACC182371FD2E0072FF07 /* NewsCell.xib */,
 			);
 			path = "News Cell";
 			sourceTree = "<group>";
@@ -194,7 +194,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E31ACC1A2371FD2E0072FF07 /* NewsCellCollectionViewCell.xib in Resources */,
+				E31ACC1A2371FD2E0072FF07 /* NewsCell.xib in Resources */,
 				E31ACC1E2371FF820072FF07 /* NewsHeader.xib in Resources */,
 				E31ACBFE2371F2AF0072FF07 /* LaunchScreen.storyboard in Resources */,
 				E31ACBFB2371F2AF0072FF07 /* Assets.xcassets in Resources */,
@@ -215,7 +215,7 @@
 				E31ACC152371FBD00072FF07 /* NewsCustomLayoutAttributes.swift in Sources */,
 				E31ACBF42371F2A90072FF07 /* AppDelegate.swift in Sources */,
 				E31ACC132371F9D70072FF07 /* NewsCustomLayoutSettings.swift in Sources */,
-				E31ACC192371FD2E0072FF07 /* NewsCellCollectionViewCell.swift in Sources */,
+				E31ACC192371FD2E0072FF07 /* NewsCell.swift in Sources */,
 				E31ACC112371F9A40072FF07 /* NewsCustomLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,6 +361,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Archack 2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -378,6 +379,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Archack 2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

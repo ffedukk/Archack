@@ -10,7 +10,7 @@ import UIKit
 
 struct NewsCustomLayoutSettings {
     //Sizes
-    var headerSize : CGFloat?
+    var headerSize : CGSize?
     
     //Behaviour
     var isHeaderSticky : Bool

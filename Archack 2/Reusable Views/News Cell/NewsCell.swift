@@ -8,9 +8,10 @@
 
 import UIKit
 
-class NewsCellCollectionViewCell: UICollectionViewCell {
+class NewsCell: UICollectionViewCell {
    
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var container: UIView!
     
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
         super.apply(layoutAttributes)
@@ -18,5 +19,11 @@ class NewsCellCollectionViewCell: UICollectionViewCell {
         guard let _ = layoutAttributes as? NewsCustomLayoutAttributes else {
             return
         }
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        container.layer.cornerRadius = 6
+        container.layer.masksToBounds = true
     }
 }
