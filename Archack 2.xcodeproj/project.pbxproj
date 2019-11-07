@@ -20,6 +20,7 @@
 		E31ACC1A2371FD2E0072FF07 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E31ACC182371FD2E0072FF07 /* NewsCell.xib */; };
 		E31ACC1D2371FF820072FF07 /* NewsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31ACC1B2371FF820072FF07 /* NewsHeader.swift */; };
 		E31ACC1E2371FF820072FF07 /* NewsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = E31ACC1C2371FF820072FF07 /* NewsHeader.xib */; };
+		E33F7DE923748DAB00C925C2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33F7DE823748DAA00C925C2 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		E31ACC182371FD2E0072FF07 /* NewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
 		E31ACC1B2371FF820072FF07 /* NewsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsHeader.swift; sourceTree = "<group>"; };
 		E31ACC1C2371FF820072FF07 /* NewsHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsHeader.xib; sourceTree = "<group>"; };
+		E33F7DE823748DAA00C925C2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				E31ACBFA2371F2AF0072FF07 /* Assets.xcassets */,
 				E31ACBFC2371F2AF0072FF07 /* LaunchScreen.storyboard */,
 				E31ACBFF2371F2AF0072FF07 /* Info.plist */,
+				E33F7DE723748D8000C925C2 /* Helpers */,
 			);
 			path = "Archack 2";
 			sourceTree = "<group>";
@@ -134,6 +137,14 @@
 				E31ACC182371FD2E0072FF07 /* NewsCell.xib */,
 			);
 			path = "News Cell";
+			sourceTree = "<group>";
+		};
+		E33F7DE723748D8000C925C2 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E33F7DE823748DAA00C925C2 /* Extensions.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E31ACBF62371F2A90072FF07 /* NewsViewController.swift in Sources */,
+				E33F7DE923748DAB00C925C2 /* Extensions.swift in Sources */,
 				E31ACC1D2371FF820072FF07 /* NewsHeader.swift in Sources */,
 				E31ACC0A2371F3630072FF07 /* Data.swift in Sources */,
 				E31ACC152371FBD00072FF07 /* NewsCustomLayoutAttributes.swift in Sources */,

@@ -22,9 +22,9 @@ class NewsViewController: UICollectionViewController {
         for library in libraries{
             photos += library.photos
         }
-        
         return photos
     }
+    
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -37,6 +37,7 @@ class NewsViewController: UICollectionViewController {
         super.viewDidLoad()
         
         collectionView?.backgroundColor = UIColor.black
+
         
         if let layout = collectionView?.collectionViewLayout as? NewsCustomLayout {
             layout.delegate = self
@@ -57,7 +58,7 @@ private extension NewsViewController {
         
         collectionView.register(UINib(nibName: "NewsCell", bundle: nil), forCellWithReuseIdentifier: NewsCustomLayout.Element.cell.id)
         
-        customLayout.settings.headerSize = CGSize(width: collectionView.frame.width, height: 70)
+        customLayout.settings.headerSize = CGSize(width: collectionView.frame.width, height: 90)
         customLayout.settings.isHeaderSticky = true
         customLayout.settings.minimumInteritemSpacing = 0
         customLayout.settings.minimumLineSpacing = 0

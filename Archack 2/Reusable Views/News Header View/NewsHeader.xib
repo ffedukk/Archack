@@ -13,25 +13,21 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="header" id="U6b-Vx-4bR" customClass="NewsHeader" customModule="Archack_2" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="432" height="81"/>
+            <rect key="frame" x="0.0" y="0.0" width="396" height="94"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vdu-tg-cko">
-                    <rect key="frame" x="0.0" y="0.0" width="432" height="81"/>
+                    <rect key="frame" x="0.0" y="0.0" width="396" height="94"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ARCHACK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vAj-6Y-tnX">
-                            <rect key="frame" x="0.0" y="10" width="432" height="71"/>
-                            <fontDescription key="fontDescription" name="DevanagariSangamMN-Bold" family="Devanagari Sangam MN" pointSize="21"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="akhuenno-2" translatesAutoresizingMaskIntoConstraints="NO" id="H0r-Qa-jEH">
+                            <rect key="frame" x="0.0" y="0.0" width="396" height="94"/>
+                        </imageView>
                     </subviews>
-                    <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="vAj-6Y-tnX" secondAttribute="bottom" id="5D7-4O-f5q"/>
-                        <constraint firstItem="vAj-6Y-tnX" firstAttribute="leading" secondItem="vdu-tg-cko" secondAttribute="leading" id="ELc-Ic-9ux"/>
-                        <constraint firstAttribute="trailing" secondItem="vAj-6Y-tnX" secondAttribute="trailing" id="Ykx-ib-TNQ"/>
-                        <constraint firstItem="vAj-6Y-tnX" firstAttribute="top" secondItem="vdu-tg-cko" secondAttribute="top" constant="10" id="yv5-EZ-Lw9"/>
+                        <constraint firstItem="H0r-Qa-jEH" firstAttribute="top" secondItem="vdu-tg-cko" secondAttribute="top" id="YTU-zb-LGF"/>
+                        <constraint firstAttribute="bottom" secondItem="H0r-Qa-jEH" secondAttribute="bottom" id="ZeM-28-SR9"/>
+                        <constraint firstAttribute="trailing" secondItem="H0r-Qa-jEH" secondAttribute="trailing" id="dgz-2z-K1B"/>
+                        <constraint firstItem="H0r-Qa-jEH" firstAttribute="leading" secondItem="vdu-tg-cko" secondAttribute="leading" id="iVN-e8-bcr"/>
                     </constraints>
                 </view>
             </subviews>
@@ -42,7 +38,10 @@
                 <constraint firstItem="VXr-Tz-HHm" firstAttribute="trailing" secondItem="vdu-tg-cko" secondAttribute="trailing" id="rXf-it-zKZ"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
-            <point key="canvasLocation" x="23" y="1.5"/>
+            <point key="canvasLocation" x="5" y="8"/>
         </collectionReusableView>
     </objects>
+    <resources>
+        <image name="akhuenno-2" width="590" height="206"/>
+    </resources>
 </document>

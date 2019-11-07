@@ -224,7 +224,6 @@ extension NewsCustomLayout {
         
         if type == .header,
             settings.isHeaderSticky {
-            print(contentOffset)
             let upperLimit = contentHeight
             attributes.transform =  CGAffineTransform(
                 translationX: 0,
