@@ -90,6 +90,7 @@ extension NewsCustomLayout {
             forSupplementaryViewOfKind: Element.header.kind,
             with: IndexPath(item: 0, section: 0)
         )
+        
         prepareElement(size: headerSize, type: .header, attributes: headerAttributes)
         
         var xOffset: [CGFloat] = []
@@ -224,11 +225,10 @@ extension NewsCustomLayout {
         
         if type == .header,
             settings.isHeaderSticky {
-            let upperLimit = contentHeight
+            //let upperLimit = contentHeight
             attributes.transform =  CGAffineTransform(
                 translationX: 0,
-                y: min(upperLimit,
-                       max(0, contentOffset.y - attributes.initialOrigin.y)))
+                y: contentOffset.y /*min(upperLimit, max(0, contentOffset.y - attributes.initialOrigin.y))*/)
         }
     }
 }

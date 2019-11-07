@@ -19,7 +19,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vdu-tg-cko">
                     <rect key="frame" x="0.0" y="0.0" width="396" height="94"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="akhuenno-2" translatesAutoresizingMaskIntoConstraints="NO" id="H0r-Qa-jEH">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="akhuenno" translatesAutoresizingMaskIntoConstraints="NO" id="H0r-Qa-jEH">
                             <rect key="frame" x="0.0" y="0.0" width="396" height="94"/>
                         </imageView>
                     </subviews>
@@ -42,6 +42,6 @@
         </collectionReusableView>
     </objects>
     <resources>
-        <image name="akhuenno-2" width="590" height="206"/>
+        <image name="akhuenno" width="590" height="206"/>
     </resources>
 </document>

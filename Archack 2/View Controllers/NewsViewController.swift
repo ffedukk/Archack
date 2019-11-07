@@ -37,7 +37,6 @@ class NewsViewController: UICollectionViewController {
         super.viewDidLoad()
         
         collectionView?.backgroundColor = UIColor.black
-
         
         if let layout = collectionView?.collectionViewLayout as? NewsCustomLayout {
             layout.delegate = self
