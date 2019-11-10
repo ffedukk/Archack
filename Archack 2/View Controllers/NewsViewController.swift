@@ -41,6 +41,8 @@ class NewsViewController: UICollectionViewController {
         if let layout = collectionView?.collectionViewLayout as? NewsCustomLayout {
             layout.delegate = self
         }
+        
+        
         setupCollectionViewLayout()
     }
 
@@ -61,6 +63,13 @@ private extension NewsViewController {
         customLayout.settings.isHeaderSticky = true
         customLayout.settings.minimumInteritemSpacing = 0
         customLayout.settings.minimumLineSpacing = 0
+        customLayout.settings.leftInset = 6
+        customLayout.settings.rightInset = 6
+        
+        collectionView.contentInsetAdjustmentBehavior = .always
+        collectionView.contentInset.top = -UIApplication.shared.statusBarFrame.height
+        collectionView.contentInset.left = customLayout.settings.leftInset
+        collectionView.contentInset.right = customLayout.settings.rightInset
     }
 }
 

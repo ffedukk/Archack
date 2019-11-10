@@ -18,6 +18,8 @@ struct NewsCustomLayoutSettings {
     // Spacing
     var minimumInteritemSpacing: CGFloat
     var minimumLineSpacing: CGFloat
+    var leftInset: CGFloat
+    var rightInset: CGFloat
 }
 
 extension NewsCustomLayoutSettings {
@@ -26,5 +28,7 @@ extension NewsCustomLayoutSettings {
         self.isHeaderSticky = false
         self.minimumInteritemSpacing = 0
         self.minimumLineSpacing = 0
+        self.leftInset = 0
+        self.rightInset = 0
     }
 }

@@ -51,7 +51,7 @@ class NewsCustomLayout: UICollectionViewLayout {
     }
     
     private var collectionViewWidth: CGFloat {
-        return collectionView!.frame.width
+        return collectionView!.frame.width - ( settings.leftInset + settings.rightInset )
     }
     
     private var headerSize: CGSize {
@@ -151,7 +151,11 @@ extension NewsCustomLayout {
         guard size != .zero else {
             return
         }
-        attributes.initialOrigin = CGPoint(x:0, y: contentHeight)
+        if type == .header {
+            attributes.initialOrigin = CGPoint(x: -settings.leftInset, y: contentHeight)
+        } else {
+            attributes.initialOrigin = CGPoint(x:0, y: contentHeight)
+        }
         attributes.frame = CGRect(origin: attributes.initialOrigin, size: size)
         attributes.zIndex = zIndex
         zIndex += 1
@@ -202,7 +206,7 @@ extension NewsCustomLayout {
         for (type, elementInfos) in cache {
             for (indexPath, attributes) in elementInfos {
                 
-                attributes.transform = .identity
+                //attributes.transform = .identity
                 
                 updateSupplementaryViews(
                     type,
@@ -215,6 +219,7 @@ extension NewsCustomLayout {
                 }
             }
         }
+        print(contentOffset,oldBounds)
         return visibleLayoutAttributes
     }
     
