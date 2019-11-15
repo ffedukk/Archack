@@ -70,6 +70,8 @@ private extension NewsViewController {
         collectionView.contentInset.top = -UIApplication.shared.statusBarFrame.height
         collectionView.contentInset.left = customLayout.settings.leftInset
         collectionView.contentInset.right = customLayout.settings.rightInset
+        
+        collectionView.showsVerticalScrollIndicator = false
     }
 }
 

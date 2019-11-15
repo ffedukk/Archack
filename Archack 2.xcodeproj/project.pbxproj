@@ -21,6 +21,9 @@
 		E31ACC1D2371FF820072FF07 /* NewsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31ACC1B2371FF820072FF07 /* NewsHeader.swift */; };
 		E31ACC1E2371FF820072FF07 /* NewsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = E31ACC1C2371FF820072FF07 /* NewsHeader.xib */; };
 		E33F7DE923748DAB00C925C2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33F7DE823748DAA00C925C2 /* Extensions.swift */; };
+		E35C3CA0237B1E970005B4B6 /* LibrariesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35C3C9F237B1E970005B4B6 /* LibrariesViewController.swift */; };
+		E35C3CA4237B1F150005B4B6 /* LibrariesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35C3CA2237B1F150005B4B6 /* LibrariesCell.swift */; };
+		E35C3CA5237B1F150005B4B6 /* LibrariesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E35C3CA3237B1F150005B4B6 /* LibrariesCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,9 @@
 		E31ACC1B2371FF820072FF07 /* NewsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsHeader.swift; sourceTree = "<group>"; };
 		E31ACC1C2371FF820072FF07 /* NewsHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsHeader.xib; sourceTree = "<group>"; };
 		E33F7DE823748DAA00C925C2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		E35C3C9F237B1E970005B4B6 /* LibrariesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrariesViewController.swift; sourceTree = "<group>"; };
+		E35C3CA2237B1F150005B4B6 /* LibrariesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrariesCell.swift; sourceTree = "<group>"; };
+		E35C3CA3237B1F150005B4B6 /* LibrariesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LibrariesCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +113,7 @@
 		E31ACC072371F3110072FF07 /* Reusable Views */ = {
 			isa = PBXGroup;
 			children = (
+				E35C3CA1237B1EBE0005B4B6 /* Libraries Cell */,
 				E31ACC162371FD010072FF07 /* News Cell */,
 				E31ACC0B2371F76D0072FF07 /* News Header View */,
 			);
@@ -117,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				E31ACBF52371F2A90072FF07 /* NewsViewController.swift */,
+				E35C3C9F237B1E970005B4B6 /* LibrariesViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -145,6 +153,15 @@
 				E33F7DE823748DAA00C925C2 /* Extensions.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E35C3CA1237B1EBE0005B4B6 /* Libraries Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E35C3CA2237B1F150005B4B6 /* LibrariesCell.swift */,
+				E35C3CA3237B1F150005B4B6 /* LibrariesCell.xib */,
+			);
+			path = "Libraries Cell";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,6 +223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E31ACC1A2371FD2E0072FF07 /* NewsCell.xib in Resources */,
+				E35C3CA5237B1F150005B4B6 /* LibrariesCell.xib in Resources */,
 				E31ACC1E2371FF820072FF07 /* NewsHeader.xib in Resources */,
 				E31ACBFE2371F2AF0072FF07 /* LaunchScreen.storyboard in Resources */,
 				E31ACBFB2371F2AF0072FF07 /* Assets.xcassets in Resources */,
@@ -222,9 +240,11 @@
 			files = (
 				E31ACBF62371F2A90072FF07 /* NewsViewController.swift in Sources */,
 				E33F7DE923748DAB00C925C2 /* Extensions.swift in Sources */,
+				E35C3CA0237B1E970005B4B6 /* LibrariesViewController.swift in Sources */,
 				E31ACC1D2371FF820072FF07 /* NewsHeader.swift in Sources */,
 				E31ACC0A2371F3630072FF07 /* Data.swift in Sources */,
 				E31ACC152371FBD00072FF07 /* NewsCustomLayoutAttributes.swift in Sources */,
+				E35C3CA4237B1F150005B4B6 /* LibrariesCell.swift in Sources */,
 				E31ACBF42371F2A90072FF07 /* AppDelegate.swift in Sources */,
 				E31ACC132371F9D70072FF07 /* NewsCustomLayoutSettings.swift in Sources */,
 				E31ACC192371FD2E0072FF07 /* NewsCell.swift in Sources */,
