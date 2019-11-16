@@ -14,7 +14,7 @@ class LibrariesViewController: UICollectionViewController {
         return collectionView?.collectionViewLayout as? LibrariesCustomLayout
     }
     
-    private let libraries : [Library] = [Trees(),People(),People()]
+    private let libraries : [Library] = [Trees(),People(),Trees(),People()]
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
