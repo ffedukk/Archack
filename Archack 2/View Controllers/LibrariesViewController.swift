@@ -10,10 +10,24 @@ import UIKit
 
 class LibrariesViewController: UICollectionViewController {
     
-    private let libraries : [Library] = [Trees(),People()]
+    var customLayout : LibrariesCustomLayout? {
+        return collectionView?.collectionViewLayout as? LibrariesCustomLayout
+    }
+    
+    private let libraries : [Library] = [Trees(),People(),People()]
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let image = UIImage(named: "newsHeader2")
+        
+        navigationController?.navigationBar.setBackgroundImage(image?.resizableImage(withCapInsets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), resizingMode: UIImageResizingMode.stretch), for: .default)
+        navigationController?.navigationBar.barStyle = .black
+        navigationController?.navigationBar.shadowImage = UIImage()
         
         collectionView?.backgroundColor = UIColor.black
         
@@ -23,14 +37,28 @@ class LibrariesViewController: UICollectionViewController {
     
 private extension LibrariesViewController {
     private func setupCollectionViewLayout() {
-        guard let collectionView = collectionView
+        guard let collectionView = collectionView,
+        let customLayout = customLayout
             else {
                 return
         }
         
-        collectionView.register(UINib(nibName: "NewsHeader",bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header")
-        
         collectionView.register(UINib(nibName: "LibrariesCell", bundle: nil), forCellWithReuseIdentifier: "librariesCell")
+        
+        customLayout.settings.headerSize = CGSize(width: collectionView.frame.width, height: 90)
+        customLayout.settings.isHeaderSticky = true
+        customLayout.settings.numberOfColumns = 1
+        customLayout.settings.minimumInteritemSpacing = 0
+        customLayout.settings.minimumLineSpacing = 0
+        customLayout.settings.cellPadding = 6
+        customLayout.settings.leftInset = 6
+        customLayout.settings.rightInset = 6
+        
+        collectionView.contentInsetAdjustmentBehavior = .always
+        collectionView.contentInset.top = -UIApplication.shared.statusBarFrame.height
+        collectionView.contentInset.left = customLayout.settings.leftInset
+        collectionView.contentInset.right = customLayout.settings.rightInset
+        collectionView.contentInset.top = 6
         
         collectionView.showsVerticalScrollIndicator = false
     }
@@ -51,7 +79,10 @@ extension LibrariesViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "librariesCell", for: indexPath)
         if let libraryCell = cell as? LibrariesCell {
-            libraryCell.scrollView.contentSize = CGSize(width: CGFloat(libraries[indexPath.item].photos.count) * collectionView.bounds.width, height: 250)
+            libraryCell.libraryName.text = libraries[indexPath.item].libraryName
+            libraryCell.authorName.text = libraries[indexPath.item].author
+            
+            libraryCell.scrollView.contentSize = CGSize(width: CGFloat(libraries[indexPath.item].photos.count) * collectionView.bounds.width, height: 100)
             
             libraryCell.pageControl.numberOfPages = libraries[indexPath.item].photos.count
             
@@ -69,24 +100,20 @@ extension LibrariesViewController {
         return cell
     }
     
-    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        switch kind {
-        case NewsCustomLayout.Element.header.kind:
-            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: NewsCustomLayout.Element.header.id, for: indexPath)
-            return headerView
-        default:
-            fatalError("Expected Element Kind")
-        }
-    }
-    
 }
 
-extension LibrariesViewController : UICollectionViewDelegateFlowLayout {
+//MARK: - Delegate Methods
+
+extension LibrariesViewController {
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
-        let frame = CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height / CGFloat(2) - 44)
-        return frame
+        let image: UIImage
+        if (collectionView?.contentOffset.y)! > CGFloat(10) {
+            image = UIImage(named: "newsHeader")!
+        } else {
+            image = UIImage(named: "newsHeader2")!
+        }
+        navigationController?.navigationBar.setBackgroundImage(image.resizableImage(withCapInsets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), resizingMode: UIImageResizingMode.stretch), for: .default)
     }
 }
-

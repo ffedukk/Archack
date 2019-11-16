@@ -56,6 +56,8 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="295" height="228"/>
             <connections>
+                <outlet property="authorName" destination="8be-f5-LJo" id="7eA-IE-cqN"/>
+                <outlet property="libraryName" destination="kMd-P2-Lqq" id="PMM-Z2-GvE"/>
                 <outlet property="pageControl" destination="iyM-Za-VGc" id="yRY-5m-Bhm"/>
                 <outlet property="scrollView" destination="UvH-XF-1jY" id="ouw-a3-k4K"/>
             </connections>

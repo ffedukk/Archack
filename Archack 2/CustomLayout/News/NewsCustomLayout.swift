@@ -66,10 +66,8 @@ class NewsCustomLayout: UICollectionViewLayout {
         return collectionView!.contentOffset
     }
     
-    private let cellPadding: CGFloat = 6
-    private let numberOfColumns = 2
     private var columnWidth: CGFloat {
-        return collectionViewWidth / CGFloat(2)
+        return collectionViewWidth / CGFloat(settings.numberOfColumns)
     }
 }
 
@@ -94,11 +92,11 @@ extension NewsCustomLayout {
         prepareElement(size: headerSize, type: .header, attributes: headerAttributes)
         
         var xOffset: [CGFloat] = []
-        for column in 0..<numberOfColumns {
+        for column in 0..<settings.numberOfColumns {
             xOffset.append(CGFloat(column) * columnWidth)
         }
         var column = 0
-        var yOffset: [CGFloat] = .init(repeating: headerSize.height, count: numberOfColumns)
+        var yOffset: [CGFloat] = .init(repeating: headerSize.height, count: settings.numberOfColumns)
         
         for item in 0 ..< collectionView.numberOfItems(inSection: 0) {
             let cellIndexPath = IndexPath(item: item, section: 0)
@@ -118,7 +116,7 @@ extension NewsCustomLayout {
             
             yOffset[column] += photoHeight
             
-            let insetFrame = frame.insetBy(dx: cellPadding, dy: cellPadding)
+            let insetFrame = frame.insetBy(dx: settings.cellPadding, dy: settings.cellPadding)
             attributes.frame = insetFrame
             
             attributes.zIndex = zIndex
@@ -126,7 +124,7 @@ extension NewsCustomLayout {
             contentHeight = max(contentHeight,attributes.frame.maxY)
             cache[.cell]?[cellIndexPath] = attributes
             
-            column = column < (numberOfColumns - 1) ? (column + 1) : 0
+            column = column < (settings.numberOfColumns - 1) ? (column + 1) : 0
             
             zIndex += 1
         }
@@ -219,7 +217,7 @@ extension NewsCustomLayout {
                 }
             }
         }
-        print(contentOffset,oldBounds)
+        //print(contentOffset,oldBounds)
         return visibleLayoutAttributes
     }
     

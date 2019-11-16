@@ -61,8 +61,10 @@ private extension NewsViewController {
         
         customLayout.settings.headerSize = CGSize(width: collectionView.frame.width, height: 90)
         customLayout.settings.isHeaderSticky = true
+        customLayout.settings.numberOfColumns = 2
         customLayout.settings.minimumInteritemSpacing = 0
         customLayout.settings.minimumLineSpacing = 0
+        customLayout.settings.cellPadding = 6
         customLayout.settings.leftInset = 6
         customLayout.settings.rightInset = 6
         

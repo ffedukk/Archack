@@ -10,6 +10,7 @@ import UIKit
 
 class LibrariesCell: UICollectionViewCell, UIScrollViewDelegate {
 
+
     @IBOutlet weak var libraryName: UILabel!
     @IBOutlet weak var authorName: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -25,6 +26,8 @@ class LibrariesCell: UICollectionViewCell, UIScrollViewDelegate {
         
         scrollView.isPagingEnabled = true
         scrollView.showsHorizontalScrollIndicator = false
+        scrollView.layer.cornerRadius = 6
+        scrollView.layer.masksToBounds = true
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
