@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        RunLoop.current.run(until: (NSDate(timeIntervalSinceNow: 1) as NSDate) as Date) // temporate
         // Override point for customization after application launch.
         return true
     }
