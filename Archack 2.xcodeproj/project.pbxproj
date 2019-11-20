@@ -20,6 +20,7 @@
 		E31ACC1A2371FD2E0072FF07 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E31ACC182371FD2E0072FF07 /* NewsCell.xib */; };
 		E31ACC1D2371FF820072FF07 /* NewsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31ACC1B2371FF820072FF07 /* NewsHeader.swift */; };
 		E31ACC1E2371FF820072FF07 /* NewsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = E31ACC1C2371FF820072FF07 /* NewsHeader.xib */; };
+		E3318F062385AE2F003EE17B /* RonduitCapitals-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3318F052385AE2E003EE17B /* RonduitCapitals-Light.otf */; };
 		E33F7DE923748DAB00C925C2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33F7DE823748DAA00C925C2 /* Extensions.swift */; };
 		E35C3CA0237B1E970005B4B6 /* LibrariesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35C3C9F237B1E970005B4B6 /* LibrariesViewController.swift */; };
 		E35C3CA4237B1F150005B4B6 /* LibrariesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35C3CA2237B1F150005B4B6 /* LibrariesCell.swift */; };
@@ -45,6 +46,7 @@
 		E31ACC182371FD2E0072FF07 /* NewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
 		E31ACC1B2371FF820072FF07 /* NewsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsHeader.swift; sourceTree = "<group>"; };
 		E31ACC1C2371FF820072FF07 /* NewsHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsHeader.xib; sourceTree = "<group>"; };
+		E3318F052385AE2E003EE17B /* RonduitCapitals-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RonduitCapitals-Light.otf"; sourceTree = "<group>"; };
 		E33F7DE823748DAA00C925C2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E35C3C9F237B1E970005B4B6 /* LibrariesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrariesViewController.swift; sourceTree = "<group>"; };
 		E35C3CA2237B1F150005B4B6 /* LibrariesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrariesCell.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				E31ACBFA2371F2AF0072FF07 /* Assets.xcassets */,
 				E31ACBFC2371F2AF0072FF07 /* LaunchScreen.storyboard */,
 				E31ACBFF2371F2AF0072FF07 /* Info.plist */,
+				E3318F042385ADE2003EE17B /* Fonts */,
 				E33F7DE723748D8000C925C2 /* Helpers */,
 			);
 			path = "Archack 2";
@@ -150,6 +153,14 @@
 				E31ACC182371FD2E0072FF07 /* NewsCell.xib */,
 			);
 			path = "News Cell";
+			sourceTree = "<group>";
+		};
+		E3318F042385ADE2003EE17B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E3318F052385AE2E003EE17B /* RonduitCapitals-Light.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		E33F7DE723748D8000C925C2 /* Helpers */ = {
@@ -249,6 +260,7 @@
 			files = (
 				E31ACC1A2371FD2E0072FF07 /* NewsCell.xib in Resources */,
 				E35C3CA5237B1F150005B4B6 /* LibrariesCell.xib in Resources */,
+				E3318F062385AE2F003EE17B /* RonduitCapitals-Light.otf in Resources */,
 				E31ACC1E2371FF820072FF07 /* NewsHeader.xib in Resources */,
 				E31ACBFE2371F2AF0072FF07 /* LaunchScreen.storyboard in Resources */,
 				E31ACBFB2371F2AF0072FF07 /* Assets.xcassets in Resources */,

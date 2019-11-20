@@ -23,7 +23,7 @@ class LibrariesViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let image = UIImage(named: "newsHeader2")
+        let image = UIImage(named: "newsHeader")
         
         navigationController?.navigationBar.setBackgroundImage(image?.resizableImage(withCapInsets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), resizingMode: UIImageResizingMode.stretch), for: .default)
         navigationController?.navigationBar.barStyle = .black
@@ -106,14 +106,14 @@ extension LibrariesViewController {
 
 extension LibrariesViewController {
     
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-        let image: UIImage
-        if (collectionView?.contentOffset.y)! > CGFloat(10) {
-            image = UIImage(named: "newsHeader")!
-        } else {
-            image = UIImage(named: "newsHeader2")!
-        }
-        navigationController?.navigationBar.setBackgroundImage(image.resizableImage(withCapInsets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), resizingMode: UIImageResizingMode.stretch), for: .default)
-    }
+//    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        print(collectionView?.contentOffset)
+//        let image: UIImage
+//        if (collectionView?.contentOffset.y)! > CGFloat(-94) {
+//            image = UIImage(named: "newsHeader")!
+//        } else {
+//            image = UIImage(named: "newsHeader2")!
+//        }
+//        navigationController?.navigationBar.setBackgroundImage(image.resizableImage(withCapInsets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), resizingMode: UIImageResizingMode.stretch), for: .default)
+//    }
 }

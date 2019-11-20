@@ -28,6 +28,8 @@ class LibrariesCell: UICollectionViewCell, UIScrollViewDelegate {
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.layer.cornerRadius = 6
         scrollView.layer.masksToBounds = true
+        layer.cornerRadius = 6
+        layer.masksToBounds = true
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

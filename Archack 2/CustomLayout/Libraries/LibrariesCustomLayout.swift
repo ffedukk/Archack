@@ -84,7 +84,7 @@ extension LibrariesCustomLayout {
             let attributes = LibrariesCustomLayoutAttributes(forCellWith: cellIndexPath)
             let lineInterSpace = settings.minimumLineSpacing
             
-            let height: CGFloat = 200
+            let height: CGFloat = 150
             
             let frame = CGRect(
                 x: settings.minimumInteritemSpacing,
