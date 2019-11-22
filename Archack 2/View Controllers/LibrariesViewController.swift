@@ -46,13 +46,14 @@ private extension LibrariesViewController {
         collectionView.register(UINib(nibName: "LibrariesCell", bundle: nil), forCellWithReuseIdentifier: "librariesCell")
         
         customLayout.settings.headerSize = CGSize(width: collectionView.frame.width, height: 90)
+        customLayout.settings.scrollViewHeight = 130
         customLayout.settings.isHeaderSticky = true
         customLayout.settings.numberOfColumns = 1
-        customLayout.settings.minimumInteritemSpacing = 0
-        customLayout.settings.minimumLineSpacing = 0
-        customLayout.settings.cellPadding = 6
-        customLayout.settings.leftInset = 6
-        customLayout.settings.rightInset = 6
+        customLayout.settings.minimumInteritemSpacing = 6
+        customLayout.settings.minimumLineSpacing = 12
+        customLayout.settings.cellPadding = 0
+        customLayout.settings.leftInset = 12
+        customLayout.settings.rightInset = 12
         
         collectionView.contentInsetAdjustmentBehavior = .always
         collectionView.contentInset.top = -UIApplication.shared.statusBarFrame.height
@@ -79,11 +80,14 @@ extension LibrariesViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "librariesCell", for: indexPath)
         if let libraryCell = cell as? LibrariesCell {
+            
             libraryCell.libraryName.text = libraries[indexPath.item].libraryName
             libraryCell.authorName.text = libraries[indexPath.item].author
             
-            libraryCell.scrollView.contentSize = CGSize(width: CGFloat(libraries[indexPath.item].photos.count) * collectionView.bounds.width, height: 100)
-            
+            if let customLayout = customLayout {
+            libraryCell.scrollView.contentSize = CGSize(width: CGFloat(libraries[indexPath.item].photos.count) * libraryCell.bounds.width / CGFloat(5), height: customLayout.settings.scrollViewHeight)
+            }
+                
             libraryCell.pageControl.numberOfPages = libraries[indexPath.item].photos.count
             
             for (index,photo) in libraries[indexPath.item].photos.enumerated() {
@@ -91,16 +95,19 @@ extension LibrariesViewController {
                 imageView.image = UIImage(named: photo)
                 imageView.contentMode = .scaleAspectFit
                 libraryCell.scrollView.addSubview(imageView)
-                imageView.frame.size.width = libraryCell.bounds.width
+                imageView.frame.size.width = libraryCell.bounds.width / CGFloat(5)
                 imageView.frame.size.height = libraryCell.scrollView.contentSize.height
-                imageView.frame.origin.x = CGFloat(index) * libraryCell.bounds.width
-                print(imageView.frame.origin,imageView.frame,libraryCell.bounds.width)
+                imageView.frame.origin.x = CGFloat(index) * imageView.frame.width
+                
+                
+                //print(imageView.frame.origin,imageView.frame,libraryCell.bounds.width)
             }
         }
         return cell
     }
     
 }
+
 
 //MARK: - Delegate Methods
 

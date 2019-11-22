@@ -82,18 +82,17 @@ extension LibrariesCustomLayout {
         for item in 0 ..< collectionView.numberOfItems(inSection: 0) {
             let cellIndexPath = IndexPath(item: item, section: 0)
             let attributes = LibrariesCustomLayoutAttributes(forCellWith: cellIndexPath)
-            let lineInterSpace = settings.minimumLineSpacing
             
-            let height: CGFloat = 150
+            let height: CGFloat = settings.scrollViewHeight
             
             let frame = CGRect(
-                x: settings.minimumInteritemSpacing,
-                y: yOffset + lineInterSpace,
+                x: 0,
+                y: yOffset,
                 width:  columnWidth,
                 height: height
             )
-            
-            yOffset += height
+    
+            yOffset += height + settings.minimumLineSpacing
             
             let insetFrame = frame.insetBy(dx: settings.cellPadding, dy: settings.cellPadding)
             attributes.frame = insetFrame

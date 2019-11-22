@@ -27,6 +27,9 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I06-Hi-juS">
                         <rect key="frame" x="0.0" y="0.0" width="295" height="248"/>
                         <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UvH-XF-1jY">
+                                <rect key="frame" x="0.0" y="0.0" width="295" height="248"/>
+                            </scrollView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Library Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kMd-P2-Lqq">
                                 <rect key="frame" x="6" y="6" width="289" height="25"/>
                                 <fontDescription key="fontDescription" name="RonduitCapitals-Light" family="Ronduit Capitals" pointSize="25"/>
@@ -39,9 +42,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UvH-XF-1jY">
-                                <rect key="frame" x="0.0" y="46" width="295" height="202"/>
-                            </scrollView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="iyM-Za-VGc">
                                 <rect key="frame" x="0.0" y="228" width="295" height="20"/>
                                 <color key="pageIndicatorTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -50,7 +50,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="UvH-XF-1jY" firstAttribute="top" secondItem="8be-f5-LJo" secondAttribute="bottom" id="Czy-7U-iFN"/>
+                            <constraint firstItem="UvH-XF-1jY" firstAttribute="top" secondItem="I06-Hi-juS" secondAttribute="top" id="Czy-7U-iFN"/>
                             <constraint firstAttribute="trailing" secondItem="iyM-Za-VGc" secondAttribute="trailing" id="Dcd-HQ-R42"/>
                             <constraint firstItem="iyM-Za-VGc" firstAttribute="leading" secondItem="I06-Hi-juS" secondAttribute="leading" id="H5b-aU-5ZH"/>
                             <constraint firstAttribute="bottom" secondItem="iyM-Za-VGc" secondAttribute="bottom" id="HdL-ZB-3Fz"/>

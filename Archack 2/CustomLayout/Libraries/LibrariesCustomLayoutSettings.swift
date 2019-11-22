@@ -11,6 +11,7 @@ import UIKit
 struct LibrariesCustomLayoutSettings {
     //Sizes
     var headerSize : CGSize?
+    var scrollViewHeight : CGFloat
     
     //Behaviour
     var isHeaderSticky : Bool
@@ -29,6 +30,7 @@ struct LibrariesCustomLayoutSettings {
 extension LibrariesCustomLayoutSettings {
     init() {
         self.headerSize = nil
+        self.scrollViewHeight = 0
         self.isHeaderSticky = false
         self.numberOfColumns = 0
         self.minimumInteritemSpacing = 0
