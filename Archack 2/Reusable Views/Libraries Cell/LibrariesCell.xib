@@ -42,28 +42,26 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="iyM-Za-VGc">
-                                <rect key="frame" x="0.0" y="228" width="295" height="20"/>
-                                <color key="pageIndicatorTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="currentPageIndicatorTintColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </pageControl>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="CFm-HB-uPp">
+                                <rect key="frame" x="0.0" y="236.5" width="295" height="2.5"/>
+                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="UvH-XF-1jY" firstAttribute="top" secondItem="I06-Hi-juS" secondAttribute="top" id="Czy-7U-iFN"/>
-                            <constraint firstAttribute="trailing" secondItem="iyM-Za-VGc" secondAttribute="trailing" id="Dcd-HQ-R42"/>
-                            <constraint firstItem="iyM-Za-VGc" firstAttribute="leading" secondItem="I06-Hi-juS" secondAttribute="leading" id="H5b-aU-5ZH"/>
-                            <constraint firstAttribute="bottom" secondItem="iyM-Za-VGc" secondAttribute="bottom" id="HdL-ZB-3Fz"/>
                             <constraint firstAttribute="bottom" secondItem="UvH-XF-1jY" secondAttribute="bottom" id="Jhk-rY-FiG"/>
-                            <constraint firstItem="iyM-Za-VGc" firstAttribute="top" secondItem="UvH-XF-1jY" secondAttribute="bottom" constant="-20" id="Kzv-ij-wD0"/>
                             <constraint firstAttribute="trailing" secondItem="8be-f5-LJo" secondAttribute="trailing" id="T8Z-tQ-LiH"/>
                             <constraint firstItem="8be-f5-LJo" firstAttribute="leading" secondItem="I06-Hi-juS" secondAttribute="leading" constant="6" id="Vzu-B8-jck"/>
                             <constraint firstAttribute="trailing" secondItem="UvH-XF-1jY" secondAttribute="trailing" id="Y2M-bw-nBP"/>
+                            <constraint firstItem="CFm-HB-uPp" firstAttribute="leading" secondItem="I06-Hi-juS" secondAttribute="leading" id="gqy-jx-uyb"/>
                             <constraint firstItem="kMd-P2-Lqq" firstAttribute="top" secondItem="I06-Hi-juS" secondAttribute="top" constant="6" id="jif-j8-QOg"/>
                             <constraint firstItem="UvH-XF-1jY" firstAttribute="leading" secondItem="I06-Hi-juS" secondAttribute="leading" id="m1u-FC-Fck"/>
                             <constraint firstItem="kMd-P2-Lqq" firstAttribute="leading" secondItem="I06-Hi-juS" secondAttribute="leading" constant="6" id="pAo-Aa-hTQ"/>
+                            <constraint firstAttribute="bottom" secondItem="CFm-HB-uPp" secondAttribute="bottom" constant="10" id="tTG-fw-2p8"/>
                             <constraint firstItem="8be-f5-LJo" firstAttribute="top" secondItem="kMd-P2-Lqq" secondAttribute="bottom" constant="-3" id="tnb-AS-Y48"/>
                             <constraint firstAttribute="trailing" secondItem="kMd-P2-Lqq" secondAttribute="trailing" id="ylC-Qp-WiA"/>
+                            <constraint firstAttribute="trailing" secondItem="CFm-HB-uPp" secondAttribute="trailing" id="zhw-qi-bwI"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -79,7 +77,7 @@
             <connections>
                 <outlet property="authorName" destination="8be-f5-LJo" id="7eA-IE-cqN"/>
                 <outlet property="libraryName" destination="kMd-P2-Lqq" id="PMM-Z2-GvE"/>
-                <outlet property="pageControl" destination="iyM-Za-VGc" id="yRY-5m-Bhm"/>
+                <outlet property="progressBar" destination="CFm-HB-uPp" id="EMP-bq-J3g"/>
                 <outlet property="scrollView" destination="UvH-XF-1jY" id="ouw-a3-k4K"/>
             </connections>
             <point key="canvasLocation" x="30.5" y="41"/>

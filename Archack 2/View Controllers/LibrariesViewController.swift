@@ -87,8 +87,6 @@ extension LibrariesViewController {
             if let customLayout = customLayout {
             libraryCell.scrollView.contentSize = CGSize(width: CGFloat(libraries[indexPath.item].photos.count) * libraryCell.bounds.width / CGFloat(5), height: customLayout.settings.scrollViewHeight)
             }
-                
-            libraryCell.pageControl.numberOfPages = libraries[indexPath.item].photos.count
             
             for (index,photo) in libraries[indexPath.item].photos.enumerated() {
                 let imageView = UIImageView()

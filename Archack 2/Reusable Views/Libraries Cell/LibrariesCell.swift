@@ -11,10 +11,10 @@ import UIKit
 class LibrariesCell: UICollectionViewCell, UIScrollViewDelegate {
 
 
+    @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var libraryName: UILabel!
     @IBOutlet weak var authorName: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var pageControl: UIPageControl!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,13 +31,15 @@ class LibrariesCell: UICollectionViewCell, UIScrollViewDelegate {
         layer.cornerRadius = 6
         layer.masksToBounds = true
         
-        
+        progressBar.setProgress(0, animated: false)
         
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let page = scrollView.contentOffset.x / scrollView.frame.size.width
-        pageControl.currentPage = Int(page)
+        
+        let progressBarValue = scrollView.contentOffset.x / (scrollView.contentSize.width - scrollView.bounds.width)
+        progressBar.setProgress(Float(progressBarValue), animated: true)
+        
 
         let itemWidth = scrollView.bounds.width / CGFloat(5)
         let delta = scrollView.contentOffset.x.truncatingRemainder(dividingBy: itemWidth)
