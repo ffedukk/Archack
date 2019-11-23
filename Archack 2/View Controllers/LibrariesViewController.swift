@@ -14,7 +14,7 @@ class LibrariesViewController: UICollectionViewController {
         return collectionView?.collectionViewLayout as? LibrariesCustomLayout
     }
     
-    private let libraries : [Library] = [Trees(),People(),Trees(),People()]
+    private let libraries : [Library] = [Trees(),People(),Trees(),People(),Trees(),People()]
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -23,16 +23,11 @@ class LibrariesViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let image = UIImage(named: "newsHeader")
-        
-        navigationController?.navigationBar.setBackgroundImage(image?.resizableImage(withCapInsets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), resizingMode: UIImageResizingMode.stretch), for: .default)
-        navigationController?.navigationBar.barStyle = .black
-        navigationController?.navigationBar.shadowImage = UIImage()
-        
         collectionView?.backgroundColor = UIColor.black
-        
+        setupNavBar()
         setupCollectionViewLayout()
     }
+    
 }
     
 private extension LibrariesViewController {
@@ -54,14 +49,46 @@ private extension LibrariesViewController {
         customLayout.settings.cellPadding = 0
         customLayout.settings.leftInset = 12
         customLayout.settings.rightInset = 12
+        customLayout.settings.topInset = 6
         
         collectionView.contentInsetAdjustmentBehavior = .always
         collectionView.contentInset.top = -UIApplication.shared.statusBarFrame.height
         collectionView.contentInset.left = customLayout.settings.leftInset
         collectionView.contentInset.right = customLayout.settings.rightInset
-        collectionView.contentInset.top = 6
+        collectionView.contentInset.top = customLayout.settings.topInset
         
         collectionView.showsVerticalScrollIndicator = false
+    }
+    
+    private func setupNavBar(){
+        guard let navBar = navigationController?.navigationBar,
+              let navController = navigationController
+            else {
+            return
+        }
+        //let statusBarHeight = UIApplication.shared.statusBarFrame.height
+        
+        let headerBlack = UIImage(named: "headerBlack")
+        let headerWhite = UIImage(named: "headerWhite")
+        
+        navBar.barStyle = .black
+        navBar.shadowImage = UIImage()
+        navBar.setBackgroundImage(UIImage(), for: .default)
+        navController.view.backgroundColor = .clear
+        
+        let headerBlackView = UIImageView(image: headerBlack)
+        let headerWhiteView = UIImageView(image: headerWhite)
+        
+        headerBlackView.contentMode = .scaleAspectFill
+        headerWhiteView.contentMode = .scaleAspectFill
+        
+        headerBlackView.frame.size = navBar.frame.size
+        headerBlackView.frame.size.height -= 64
+        headerWhiteView.frame.size = navBar.frame.size
+        headerWhiteView.frame.size.height -= 64
+        
+        navBar.addSubview(headerBlackView)
+        navBar.addSubview(headerWhiteView)
     }
 }
 
@@ -111,14 +138,17 @@ extension LibrariesViewController {
 
 extension LibrariesViewController {
     
-//    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        print(collectionView?.contentOffset)
-//        let image: UIImage
-//        if (collectionView?.contentOffset.y)! > CGFloat(-94) {
-//            image = UIImage(named: "newsHeader")!
-//        } else {
-//            image = UIImage(named: "newsHeader2")!
-//        }
-//        navigationController?.navigationBar.setBackgroundImage(image.resizableImage(withCapInsets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), resizingMode: UIImageResizingMode.stretch), for: .default)
-//    }
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        if let navBar = navigationController?.navigationBar {
+            let currentOffset = scrollView.contentOffset.y + UIApplication.shared.statusBarFrame.height + navBar.frame.height + scrollView.contentInset.top
+            let maxOffset: CGFloat = 50
+            if currentOffset < maxOffset {
+                navBar.subviews.last?.alpha = (maxOffset-currentOffset)/maxOffset
+            }
+            else {
+                navBar.subviews.last?.alpha = 0
+            }
+        }
+    }
 }

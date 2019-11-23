@@ -25,6 +25,7 @@ struct LibrariesCustomLayoutSettings {
     var cellPadding : CGFloat
     var leftInset: CGFloat
     var rightInset: CGFloat
+    var topInset: CGFloat
 }
 
 extension LibrariesCustomLayoutSettings {
@@ -38,5 +39,6 @@ extension LibrariesCustomLayoutSettings {
         self.cellPadding = 0
         self.leftInset = 0
         self.rightInset = 0
+        self.topInset = 0
     }
 }

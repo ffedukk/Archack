@@ -24,7 +24,6 @@ class LibrariesCell: UICollectionViewCell, UIScrollViewDelegate {
         
         scrollView.backgroundColor = UIColor.white
         
-        //scrollView.isPagingEnabled = true
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.frame.size.height = 150
         
@@ -40,18 +39,32 @@ class LibrariesCell: UICollectionViewCell, UIScrollViewDelegate {
         let progressBarValue = scrollView.contentOffset.x / (scrollView.contentSize.width - scrollView.bounds.width)
         progressBar.setProgress(Float(progressBarValue), animated: true)
         
-
+        
+    }
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        
         let itemWidth = scrollView.bounds.width / CGFloat(5)
-        let delta = scrollView.contentOffset.x.truncatingRemainder(dividingBy: itemWidth)
-        //print(delta,scrollView.contentSize.width,scrollView.contentOffset.x)
-        if scrollView.contentOffset.x > 0 && scrollView.contentOffset.x + scrollView.bounds.width < scrollView.contentSize.width && delta > 2 && delta < itemWidth - 2 && !scrollView.isDecelerating {
-            if delta >= itemWidth / CGFloat(2) {
-                scrollView.setContentOffset(CGPoint(x: scrollView.contentOffset.x + delta, y: 0), animated: true)
-            } else {
-                scrollView.setContentOffset(CGPoint(x: scrollView.contentOffset.x - delta, y: 0), animated: true)
-            }
+        let maxIndex = scrollView.contentSize.width / itemWidth - 1
+        let targetX = scrollView.contentOffset.x + velocity.x * 60
+        var targetIndex: CGFloat = 0
+        
+        if velocity.x > 0 {
+            targetIndex = ceil(targetX/itemWidth)
+        } else if velocity.x < 0 {
+            targetIndex = floor(targetX/itemWidth)
+        } else if velocity.x == 0 {
+            targetIndex = round(targetX/itemWidth)
         }
-
+        print(itemWidth,maxIndex,targetX,targetIndex)
+        if targetIndex < 0 {
+            targetIndex = 0
+        }
+        if targetIndex > maxIndex {
+            targetIndex = maxIndex
+        }
+        
+        targetContentOffset.pointee.x = targetIndex * itemWidth
     }
 
 
