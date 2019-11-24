@@ -14,23 +14,28 @@ class LibrariesViewController: UICollectionViewController {
         return collectionView?.collectionViewLayout as? LibrariesCustomLayout
     }
     
-    private let libraries : [Library] = [Trees(),People(),Trees(),People(),Trees(),People()]
+    private var libraries : [Library] = [Trees(),People(),Trees(),People(),Trees(),People()]
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         collectionView?.backgroundColor = UIColor.black
+        
+        
         setupNavBar()
         setupCollectionViewLayout()
+        setupRefreshControl()
     }
-    
 }
     
 private extension LibrariesViewController {
+    
+    //MARK: - CollectionView Layout
     private func setupCollectionViewLayout() {
         guard let collectionView = collectionView,
         let customLayout = customLayout
@@ -59,14 +64,11 @@ private extension LibrariesViewController {
         
         collectionView.showsVerticalScrollIndicator = false
     }
-    
+    //MARK: - Navigation Bar
     private func setupNavBar(){
         guard let navBar = navigationController?.navigationBar,
               let navController = navigationController
-            else {
-            return
-        }
-        //let statusBarHeight = UIApplication.shared.statusBarFrame.height
+        else { return }
         
         let headerBlack = UIImage(named: "headerBlack")
         let headerWhite = UIImage(named: "headerWhite")
@@ -89,6 +91,26 @@ private extension LibrariesViewController {
         
         navBar.addSubview(headerBlackView)
         navBar.addSubview(headerWhiteView)
+    }
+    
+    //MARK: RefreshControl
+    func setupRefreshControl () {
+        guard let collectionView = collectionView
+        else { return }
+        
+        collectionView.refreshControl = UIRefreshControl()
+        collectionView.refreshControl?.addTarget(self, action: #selector(refreshStream), for: .valueChanged)
+    }
+    
+    @objc func refreshStream() {
+        collectionView?.refreshControl?.beginRefreshing()
+        print("refresh")
+        libraries.insert(People(), at: 0)
+        collectionView?.collectionViewLayout.invalidateLayout()
+        collectionView?.reloadData()
+        
+        
+        collectionView?.refreshControl?.endRefreshing()
     }
 }
 
@@ -115,6 +137,11 @@ extension LibrariesViewController {
             libraryCell.scrollView.contentSize = CGSize(width: CGFloat(libraries[indexPath.item].photos.count) * libraryCell.bounds.width / CGFloat(5), height: customLayout.settings.scrollViewHeight)
             }
             
+            for view in libraryCell.scrollView.subviews {
+                view.removeFromSuperview()
+            }
+            
+            
             for (index,photo) in libraries[indexPath.item].photos.enumerated() {
                 let imageView = UIImageView()
                 imageView.image = UIImage(named: photo)
@@ -123,10 +150,8 @@ extension LibrariesViewController {
                 imageView.frame.size.width = libraryCell.bounds.width / CGFloat(5)
                 imageView.frame.size.height = libraryCell.scrollView.contentSize.height
                 imageView.frame.origin.x = CGFloat(index) * imageView.frame.width
-                
-                
-                //print(imageView.frame.origin,imageView.frame,libraryCell.bounds.width)
             }
+            libraryCell.scrollView.contentOffset.x = 0
         }
         return cell
     }
@@ -149,6 +174,17 @@ extension LibrariesViewController {
             else {
                 navBar.subviews.last?.alpha = 0
             }
+            
+            let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
+            let deltaOffset = maximumOffset - currentOffset
+            
+            if deltaOffset <= 0 {
+                loadMore()
+            }
         }
+    }
+    
+    func loadMore() {
+        libraries.append(People())
     }
 }

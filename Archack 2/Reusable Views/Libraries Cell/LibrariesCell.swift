@@ -56,7 +56,6 @@ class LibrariesCell: UICollectionViewCell, UIScrollViewDelegate {
         } else if velocity.x == 0 {
             targetIndex = round(targetX/itemWidth)
         }
-        print(itemWidth,maxIndex,targetX,targetIndex)
         if targetIndex < 0 {
             targetIndex = 0
         }
