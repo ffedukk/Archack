@@ -137,8 +137,11 @@ extension LibrariesViewController {
             libraryCell.scrollView.contentSize = CGSize(width: CGFloat(libraries[indexPath.item].photos.count) * libraryCell.bounds.width / CGFloat(5), height: customLayout.settings.scrollViewHeight)
             }
             
+            
             for view in libraryCell.scrollView.subviews {
-                view.removeFromSuperview()
+                if let view = view as? UIImageView {
+                    view.removeFromSuperview()
+                }
             }
             
             
@@ -150,6 +153,15 @@ extension LibrariesViewController {
                 imageView.frame.size.width = libraryCell.bounds.width / CGFloat(5)
                 imageView.frame.size.height = libraryCell.scrollView.contentSize.height
                 imageView.frame.origin.x = CGFloat(index) * imageView.frame.width
+                
+                switch index {
+                case 0,1,2:
+                    imageView.alpha = libraryCell.imageAlpha[0]
+                case 3:
+                    imageView.alpha = libraryCell.imageAlpha[1]
+                default:
+                    imageView.alpha = libraryCell.imageAlpha[2]
+                }
             }
             libraryCell.scrollView.contentOffset.x = 0
         }
