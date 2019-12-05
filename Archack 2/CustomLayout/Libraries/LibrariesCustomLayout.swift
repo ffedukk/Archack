@@ -77,6 +77,8 @@ extension LibrariesCustomLayout {
         oldBounds = collectionView.bounds
         zIndex = 0
         
+        
+        
         var yOffset: CGFloat = 0
         
         for item in 0 ..< collectionView.numberOfItems(inSection: 0) {
@@ -104,6 +106,13 @@ extension LibrariesCustomLayout {
             
             zIndex += 1
         }
+        let headerAttributes = LibrariesCustomLayoutAttributes(
+            forSupplementaryViewOfKind: Element.header.kind,
+            with: IndexPath(item: 0, section: 0)
+        )
+        
+        prepareElement(size: headerSize, type: .header, attributes: headerAttributes)
+        
         updateZIndexes()
     }
     
@@ -209,5 +218,9 @@ extension LibrariesCustomLayout {
                 translationX: 0,
                 y: contentOffset.y /*min(upperLimit, max(0, contentOffset.y - attributes.initialOrigin.y))*/)
         }
+    }
+    
+    func reloadData() {
+        cache = [Element: [IndexPath: LibrariesCustomLayoutAttributes]]()
     }
 }

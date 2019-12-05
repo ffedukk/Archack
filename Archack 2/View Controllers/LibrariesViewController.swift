@@ -15,6 +15,7 @@ class LibrariesViewController: UICollectionViewController {
     }
     
     private var libraries : [Library] = [Trees(),People(),Trees(),People(),Trees(),People()]
+    private var fetchingMore = false
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -25,8 +26,7 @@ class LibrariesViewController: UICollectionViewController {
         super.viewDidLoad()
 
         collectionView?.backgroundColor = UIColor.black
-        
-        
+
         setupNavBar()
         setupCollectionViewLayout()
         setupRefreshControl()
@@ -44,10 +44,11 @@ private extension LibrariesViewController {
         }
         
         collectionView.register(UINib(nibName: "LibrariesCell", bundle: nil), forCellWithReuseIdentifier: "librariesCell")
+        collectionView.register(UINib(nibName: "LoadingCell",bundle: nil), forSupplementaryViewOfKind: LibrariesCustomLayout.Element.header.kind, withReuseIdentifier: LibrariesCustomLayout.Element.header.id)
         
         customLayout.settings.headerSize = CGSize(width: collectionView.frame.width, height: 90)
         customLayout.settings.scrollViewHeight = 130
-        customLayout.settings.isHeaderSticky = true
+        customLayout.settings.isHeaderSticky = false
         customLayout.settings.numberOfColumns = 1
         customLayout.settings.minimumInteritemSpacing = 6
         customLayout.settings.minimumLineSpacing = 12
@@ -103,14 +104,17 @@ private extension LibrariesViewController {
     }
     
     @objc func refreshStream() {
-        collectionView?.refreshControl?.beginRefreshing()
+        guard let collectionView = collectionView,
+              let refreshControl = collectionView.refreshControl,
+              let layout = collectionView.collectionViewLayout as? LibrariesCustomLayout
+        else { return }
+        
+        refreshControl.beginRefreshing()
         print("refresh")
         libraries.insert(People(), at: 0)
-        collectionView?.collectionViewLayout.invalidateLayout()
-        collectionView?.reloadData()
-        
-        
-        collectionView?.refreshControl?.endRefreshing()
+        layout.reloadData()
+        collectionView.reloadData()
+        refreshControl.endRefreshing()
     }
 }
 
@@ -124,6 +128,7 @@ extension LibrariesViewController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return libraries.count
+
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -168,6 +173,16 @@ extension LibrariesViewController {
         return cell
     }
     
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+        case LibrariesCustomLayout.Element.header.kind:
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: LibrariesCustomLayout.Element.header.id, for: indexPath)
+            return headerView
+        default:
+            fatalError("Expected Element Kind")
+        }
+    }
+    
 }
 
 
@@ -176,27 +191,44 @@ extension LibrariesViewController {
 extension LibrariesViewController {
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard let navBar = navigationController?.navigationBar,
+            let tabBar = tabBarController?.tabBar
+            else { return }
         
-        if let navBar = navigationController?.navigationBar {
-            let currentOffset = scrollView.contentOffset.y + UIApplication.shared.statusBarFrame.height + navBar.frame.height + scrollView.contentInset.top
-            let maxOffset: CGFloat = 50
-            if currentOffset < maxOffset {
-                navBar.subviews.last?.alpha = (maxOffset-currentOffset)/maxOffset
-            }
-            else {
-                navBar.subviews.last?.alpha = 0
-            }
-            
-            let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
-            let deltaOffset = maximumOffset - currentOffset
-            
-            if deltaOffset <= 0 {
-                loadMore()
+        //MARK: - Transparent navBar
+        
+        let currentOffset = scrollView.contentOffset.y + UIApplication.shared.statusBarFrame.height + navBar.frame.height + scrollView.contentInset.top
+        let maxOffsetForNavBar: CGFloat = 50
+        if currentOffset < maxOffsetForNavBar {
+            navBar.subviews.last?.alpha = (maxOffsetForNavBar-currentOffset)/maxOffsetForNavBar
+        }
+        else {
+            navBar.subviews.last?.alpha = 0
+        }
+        
+        //MARK: - Infinite scrolling
+        
+        let contentHeight = scrollView.contentSize.height
+        if contentHeight != 0 {
+            if currentOffset > contentHeight - scrollView.frame.height + tabBar.frame.height {
+                if !fetchingMore {
+                    loadMore()
+                }
             }
         }
     }
     
     func loadMore() {
-        libraries.append(People())
+        fetchingMore = true
+        print("start refresh")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            guard let layout = self.collectionView?.collectionViewLayout as? LibrariesCustomLayout else {return}
+            
+            self.libraries.append(People())
+            self.fetchingMore = false
+            layout.reloadData()
+            self.collectionView?.reloadData()
+            
+        }
     }
 }

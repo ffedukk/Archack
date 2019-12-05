@@ -20,6 +20,8 @@
 		E31ACC1A2371FD2E0072FF07 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E31ACC182371FD2E0072FF07 /* NewsCell.xib */; };
 		E31ACC1D2371FF820072FF07 /* NewsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31ACC1B2371FF820072FF07 /* NewsHeader.swift */; };
 		E31ACC1E2371FF820072FF07 /* NewsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = E31ACC1C2371FF820072FF07 /* NewsHeader.xib */; };
+		E32BAD452399B0DD00607F3E /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32BAD432399B0DD00607F3E /* LoadingCell.swift */; };
+		E32BAD462399B0DD00607F3E /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E32BAD442399B0DD00607F3E /* LoadingCell.xib */; };
 		E3318F062385AE2F003EE17B /* RonduitCapitals-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3318F052385AE2E003EE17B /* RonduitCapitals-Light.otf */; };
 		E33F7DE923748DAB00C925C2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33F7DE823748DAA00C925C2 /* Extensions.swift */; };
 		E35C3CA0237B1E970005B4B6 /* LibrariesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35C3C9F237B1E970005B4B6 /* LibrariesViewController.swift */; };
@@ -46,6 +48,8 @@
 		E31ACC182371FD2E0072FF07 /* NewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
 		E31ACC1B2371FF820072FF07 /* NewsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsHeader.swift; sourceTree = "<group>"; };
 		E31ACC1C2371FF820072FF07 /* NewsHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsHeader.xib; sourceTree = "<group>"; };
+		E32BAD432399B0DD00607F3E /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
+		E32BAD442399B0DD00607F3E /* LoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 		E3318F052385AE2E003EE17B /* RonduitCapitals-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RonduitCapitals-Light.otf"; sourceTree = "<group>"; };
 		E33F7DE823748DAA00C925C2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E35C3C9F237B1E970005B4B6 /* LibrariesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrariesViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +125,7 @@
 		E31ACC072371F3110072FF07 /* Reusable Views */ = {
 			isa = PBXGroup;
 			children = (
+				E32BAD422399AFE300607F3E /* Loading Cell */,
 				E35C3CA1237B1EBE0005B4B6 /* Libraries Cell */,
 				E31ACC162371FD010072FF07 /* News Cell */,
 				E31ACC0B2371F76D0072FF07 /* News Header View */,
@@ -153,6 +158,15 @@
 				E31ACC182371FD2E0072FF07 /* NewsCell.xib */,
 			);
 			path = "News Cell";
+			sourceTree = "<group>";
+		};
+		E32BAD422399AFE300607F3E /* Loading Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E32BAD432399B0DD00607F3E /* LoadingCell.swift */,
+				E32BAD442399B0DD00607F3E /* LoadingCell.xib */,
+			);
+			path = "Loading Cell";
 			sourceTree = "<group>";
 		};
 		E3318F042385ADE2003EE17B /* Fonts */ = {
@@ -264,6 +278,7 @@
 				E31ACC1E2371FF820072FF07 /* NewsHeader.xib in Resources */,
 				E31ACBFE2371F2AF0072FF07 /* LaunchScreen.storyboard in Resources */,
 				E31ACBFB2371F2AF0072FF07 /* Assets.xcassets in Resources */,
+				E32BAD462399B0DD00607F3E /* LoadingCell.xib in Resources */,
 				E31ACBF92371F2A90072FF07 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,6 +299,7 @@
 				E3B6587D237F93840018FFF2 /* LibrariesCustomLayout.swift in Sources */,
 				E31ACC0A2371F3630072FF07 /* Data.swift in Sources */,
 				E31ACC152371FBD00072FF07 /* NewsCustomLayoutAttributes.swift in Sources */,
+				E32BAD452399B0DD00607F3E /* LoadingCell.swift in Sources */,
 				E35C3CA4237B1F150005B4B6 /* LibrariesCell.swift in Sources */,
 				E31ACBF42371F2A90072FF07 /* AppDelegate.swift in Sources */,
 				E31ACC132371F9D70072FF07 /* NewsCustomLayoutSettings.swift in Sources */,

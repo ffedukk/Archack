@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="header" id="U6b-Vx-4bR" customClass="LoadingCell" customModule="Archack_2" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="311" height="70"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zbM-WU-Eqi">
+                    <rect key="frame" x="0.0" y="0.0" width="311" height="70"/>
+                    <subviews>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="uh1-9Y-rg9">
+                            <rect key="frame" x="145" y="25" width="20" height="20"/>
+                        </activityIndicatorView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="uh1-9Y-rg9" firstAttribute="centerX" secondItem="zbM-WU-Eqi" secondAttribute="centerX" id="9Mn-Uc-1eq"/>
+                        <constraint firstItem="uh1-9Y-rg9" firstAttribute="centerY" secondItem="zbM-WU-Eqi" secondAttribute="centerY" id="At3-Qe-f4O"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="zbM-WU-Eqi" firstAttribute="top" secondItem="VXr-Tz-HHm" secondAttribute="top" id="1NE-iV-d7w"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="bottom" secondItem="zbM-WU-Eqi" secondAttribute="bottom" id="GAa-NR-1mp"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="trailing" secondItem="zbM-WU-Eqi" secondAttribute="trailing" id="Jtl-Gw-oju"/>
+                <constraint firstItem="zbM-WU-Eqi" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" id="YHT-DT-adj"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
+            <point key="canvasLocation" x="9.5" y="7"/>
+        </collectionReusableView>
+    </objects>
+</document>
